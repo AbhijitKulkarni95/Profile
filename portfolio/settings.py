@@ -80,13 +80,16 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'postgres',
-#         'USER':'postgres',
-#         'PASSWORD':'root',
+#         'NAME': 'profile',
+#         'USER':'abhijit',
+#         'PASSWORD':'password',
 #         'HOST':'localhost',
 #         'PORT':'5432',
 #     }
 # }
+
+import django_heroku
+django_heroku.settings(locals())
 
 DATABASES = {}
 DATABASES['default'] = dj_database_url.config(conn_max_age=600)
