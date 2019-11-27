@@ -38,7 +38,7 @@
     <section class="jumbotron text-center">
       <div class="container">
         <h1 class="jumbotron-heading">Hi, I'm Abhijit.</h1>
-        <p class="lead text-muted">Hey, my name is Abhijit Kulkarni and I am a Machine Learning Engineer. I Love to solve complex problems.</p>
+        <p class="lead text-muted">I am a Python Developer, Machine Learning Engineer and Data Analyst. I Love to solve complex problems and make life simple.</p>
         <p>
           <a href="mailto:abhijitkulkarni18@gmail.com" class="btn btn-primary my-2">Email Me</a>
         </p>
@@ -51,16 +51,24 @@
 
         <div class="row">
 
-          {% for job in jobs.all %}
+          <!-- {% for job in jobs.all %} -->
           <div class="col-md-4">
             <div class="card mb-4 box-shadow">
-              <img class="card-img-top" src="{{ job.image.url }}" />
+              <img class="card-img-top" src="{% static 'python-logo.png' %}" />
               <div class="card-body">
-                <p class="card-text">{{ job.summary }}</p>
+                <p class="card-text">Python is my favourite language, i have been coding in python since 2 years. I have written various scripts to help other developer.</p>
               </div>
             </div>
           </div>
-          {% endfor %}
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="{% static 'django-logo.png' %}" />
+              <div class="card-body">
+                <p class="card-text">I have been working in Django for 2 years, it is python based web framework and it is scalable. I have developed 3 projects in django.</p>
+              </div>
+            </div>
+          </div>
+          <!-- {% endfor %} -->
 
 
         </div>
