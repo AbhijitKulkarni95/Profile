@@ -78,25 +78,26 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'profile',
-#         'USER': 'cc',
-#         'PASSWORD': 'password',
-#         'HOST': 'localhost',
-#         'PORT': '',
-#
-#     }
-# }
 
 
-import django_heroku
-django_heroku.settings(locals())
+if os.environ.get('IS_HEROKU', None):
+    import django_heroku
+    django_heroku.settings(locals())
 
-DATABASES = {}
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+    DATABASES = {}
+    DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
+else:
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'profile',
+        'USER': 'cc',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '5433',
+        }
+    }
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
