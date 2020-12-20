@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_crontab',
 ]
 
 MIDDLEWARE = [
@@ -95,7 +96,7 @@ else:
         'USER': 'cc',
         'PASSWORD': 'password',
         'HOST': 'localhost',
-        'PORT': '5433',
+        'PORT': '5432',
         }
     }
 # Password validation
@@ -148,3 +149,7 @@ try:
     from .local_settings import *
 except ImportError:
     pass
+
+CRONJOBS = [
+    ('*/50 * * * *', 'portfolio.cron.my_scheduled_job')
+]
